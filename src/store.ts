@@ -6,12 +6,14 @@ const { default: immutableStateInvariant } = require('redux-immutable-state-inva
 
 import { combinedReducers } from './rootReducer';
 import { appState } from './initialState';
+import { UtilsConstants } from './modules/utils';
 
 declare const __DEV__: string; // from webpack
 let ISDEV: boolean = false;
-if (__DEV__ == "dev") {
+if (__DEV__ == UtilsConstants.DEVELOPMENT) {
     console.log("dev stage");
-    ISDEV = true;
+} else {
+    console.log("prod stage");
 }
 
 const middlewares = __DEV__ ?
@@ -20,8 +22,25 @@ const middlewares = __DEV__ ?
 
 declare let window: any;
 
-export const store = createStore(
-    combinedReducers,
-    appState,
-    redux.compose(redux.applyMiddleware(...middlewares), window.devToolsExtension ? window.devToolsExtension() : (f: any) => f)
-);
+export const getStore = (appStateParam) => {
+
+    if (__DEV__ == UtilsConstants.DEVELOPMENT) {
+        return createStore(
+            combinedReducers,
+            appStateParam,
+            redux.compose(redux.applyMiddleware(...middlewares), window.devToolsExtension ? window.devToolsExtension() : (f: any) => f)
+        );
+    }
+
+    return createStore(
+        combinedReducers,
+        appStateParam,
+        redux.compose(redux.applyMiddleware(...middlewares))
+    );
+}
+
+const store = getStore(appState);
+
+export {
+    store
+}

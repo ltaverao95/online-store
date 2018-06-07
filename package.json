@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "concurrently \"webpack-dev-server --open\" \"webpack -w\""
+    "dev": "concurrently \"webpack-dev-server --open\" \"webpack -w\"",
+    "build": "webpack -p --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".json", "scss"]
     },
 
-    module: {
+    module: {        
         rules: [
 
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
@@ -31,23 +31,28 @@ module.exports = {
                 enforce: "pre",
                 test: /\.js$/,
                 loader: "source-map-loader"
-            }
-        ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "style-loader" // creates style nodes from JS strings
+                    },
+                    {
+                        loader: "css-loader" // translates CSS into CommonJS
+                    },
+                    {
+                        loader: "sass-loader" // compiles Sass to CSS
+                    }
+                ]
+            },
+        ]        
     },
 
     plugins: [
 
         new webpack.DefinePlugin({
-            __DEV__: "'development'"
-        }),
-
-        new LiveReloadPlugin({ appendScriptTag: true })
+            __DEV__: "'production'"
+        })
     ],
-
-    devServer: {
-        port: 3000,
-        historyApiFallback: {
-            index: 'index.html'
-        }
-    }
 }
