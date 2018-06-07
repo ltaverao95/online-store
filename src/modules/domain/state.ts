@@ -1,9 +1,10 @@
 import {
-    InterfaceConfiguration
+    InterfaceConfiguration,
+    IProductsModule
 } from './'
 
 class UI{
-    
+    productsModule: IProductsModule
 }
 
 class AppState{

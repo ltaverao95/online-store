@@ -1,4 +1,5 @@
 import { AppState } from './modules/domain';
+import { ActionResultDTO } from './modules/utils/DTO';
 
 export const appState: AppState = {
     interfaceConfiguration: {
@@ -54,5 +55,11 @@ export const appState: AppState = {
             }
         }
     },
-    ui: {}
+    ui: {
+        productsModule: {
+            productsListViewModel: {
+                actionResult: new ActionResultDTO()
+            }
+        }
+    }
 };

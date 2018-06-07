@@ -1,7 +1,25 @@
 import { EntityNormalizedObj } from '../utils';
+import { ActionResultDTO } from '../utils/DTO';
 
 interface IdEntityBase {
     id: string;
+}
+
+interface ProductCompl {
+    id: string;
+    title: string;
+    description: string;
+    url: string;
+    price: number;
+    currency: string;
+}
+
+interface IProductsListViewModel {
+    actionResult: ActionResultDTO;
+}
+
+interface IProductsModule {
+    productsListViewModel: IProductsListViewModel;
 }
 
 class Product{
@@ -28,6 +46,7 @@ class ProductComplete{
     id: string;
     productId: string;
     productDetailId: string;
+    currencyId: string;
 }
 
 class ProductConfiguration{
@@ -53,5 +72,8 @@ export {
     Product,
     ProductDetail,
     ProductComplete,
-    Currency
+    Currency,
+    IProductsModule,
+    IProductsListViewModel,
+    ProductCompl
 }
