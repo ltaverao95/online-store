@@ -6,8 +6,10 @@ import {
     EntityNormalizedObj
     
 } from '../utils';
+
+import { ActionTypes } from './actionTypes';
+
 import {
-    ActionTypes,
     InterfaceConfiguration, 
     DomainConfiguration,
     ProductConfiguration,

@@ -10,7 +10,7 @@ export const appState: AppState = {
                     byId: {
                         "1": {
                             id: "1",
-                            title: "",
+                            title: "Angular Course",
                             productDetailId: "1"
                         }
                     },
@@ -20,9 +20,9 @@ export const appState: AppState = {
                     byId: {
                         "1": {
                             id: "1",
-                            description: "",
-                            url: "",
-                            price: 0,
+                            description: "Introduction to Angular framework",                            
+                            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png",
+                            price: 69000,
                             currencyId: "1"
                         }
                     },
@@ -59,16 +59,7 @@ export const appState: AppState = {
     },
     ui: {
         productsModule: {
-            productsList: [
-                {
-                    id: "1",
-                    title: "Angular Course",
-                    description: "Introduction to Angular framework",
-                    price: 0,
-                    url: "",
-                    currency: "COP $"
-                }
-            ],
+            productsList: [],
             productsListViewModel: {
                 actionResult: new ActionResultDTO()
             }

@@ -82,29 +82,17 @@ export namespace Selectors {
             }
         );
 
-        export const getCurrencyById = (currencyId: string) => {
-            return createSelector(
-                [getCurrencyList],
-                (currencyList: Array<Currency>): string => {
-                    let currencyObj: Currency = currencyList.find((currency: Currency) => currency.id == currencyId);
-                    if(!currencyObj){
-                        return null;
-                    }
-
-                    return currencyObj.currency;
-                }
-            );
-        };
-
         export const getAllCompleteProductList = createSelector(
             [
                 getProductsList,
                 getProductDetailList,
-                getProductCompleteList
+                getProductCompleteList,
+                getCurrencyList
             ],
             (productsList: Array<Product>,
                 productDetailList: Array<ProductDetail>,
-                productCompleteList: Array<ProductComplete>): Array<ProductCompl> => {
+                productCompleteList: Array<ProductComplete>,
+                currencyList: Array<Currency>): Array<ProductCompl> => {
 
                 let completeProductList = new Array<ProductCompl>();
 
@@ -121,14 +109,20 @@ export namespace Selectors {
                 }
 
                 for (let i = 0; i < productCompleteList.length; i++) {
+                    
+                    let currentProductId = productCompleteList[i].id;
+                    let currentProduct: Product = productsList.find((product: Product) => product.id == currentProductId);
+                    let currentProductDetail: ProductDetail = productDetailList.find((productDetail: ProductDetail) => productDetail.id == currentProductId);
+                    let currentCurrency: Currency = currencyList.find((currency: Currency) => currency.id == currentProductDetail.currencyId);
+
                     completeProductList.push(
                         {
-                            id: productCompleteList[i].id,
-                            title: productsList[i].title,
-                            description: productDetailList[i].description,
-                            url: productDetailList[i].url,
-                            price: productDetailList[i].price,
-                            currency: getCurrencyById(productDetailList[i].currencyId).toString()
+                            id: currentProduct.id,
+                            title: currentProduct.title,
+                            description: currentProductDetail.description,
+                            url: currentProductDetail.url,
+                            price: currentProductDetail.price,
+                            currency: currentCurrency.currency
                         }
                     );
                 }

@@ -1,5 +1,5 @@
 import * as redux from 'redux';
-import { createStore, Action, Dispatch, Middleware, Store as ReduxStore } from 'redux';
+import { createStore } from 'redux';
 import thunk, { ThunkAction } from 'redux-thunk';
 
 const { default: immutableStateInvariant } = require('redux-immutable-state-invariant');
@@ -7,6 +7,7 @@ const { default: immutableStateInvariant } = require('redux-immutable-state-inva
 import { combinedReducers } from './rootReducer';
 import { appState } from './initialState';
 import { UtilsConstants } from './modules/utils';
+import { AppState } from './modules/domain';
 
 declare const __DEV__: string; // from webpack
 let ISDEV: boolean = false;
@@ -22,7 +23,7 @@ const middlewares = __DEV__ ?
 
 declare let window: any;
 
-export const getStore = (appStateParam) => {
+export const getStore = (appStateParam: AppState) => {
 
     if (__DEV__ == UtilsConstants.DEVELOPMENT) {
         return createStore(

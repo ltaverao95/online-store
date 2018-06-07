@@ -7,6 +7,7 @@ import {
     ProductCompl,
     IProductsListViewModel
 } from '../../domain';
+import { ProductListItemComponent } from '../../product-list-item/components/ProductListItemComponent';
 
 export interface OwnProps {
     
@@ -26,16 +27,12 @@ export class ProductListComponent extends React.Component<ConnectedState & Conne
     constructor(props: ConnectedState & ConnectedDispatch & OwnProps) {
 
         super(props);
-        console.log(this.props.productsList);
-        console.log(this.props.productsListViewModel);
     }
 
     render() {
 
         return (
-            <Panel>
-                           
-            </Panel>
+            <ProductListItemComponent productsList={this.props.productsList} />
         );
     }
 }
