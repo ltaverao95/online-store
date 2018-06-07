@@ -19,6 +19,7 @@ interface IProductsListViewModel {
 }
 
 interface IProductsModule {
+    productsList: Array<ProductCompl>;
     productsListViewModel: IProductsListViewModel;
 }
 

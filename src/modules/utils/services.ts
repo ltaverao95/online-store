@@ -4,26 +4,26 @@ export namespace Services {
 
     export const getArrayFromMap = <TEntity>(entityNormalizeObj: EntityNormalizedObj<TEntity>, cloneObjects = false) => {
 
-        let dataSourceRequestsList = new Array<TEntity>();
+        let arrayList = new Array<TEntity>();
 
         if (!entityNormalizeObj) {
-            return dataSourceRequestsList;
+            return arrayList;
         }
 
         if (!entityNormalizeObj.allIds) {
-            return dataSourceRequestsList;
+            return arrayList;
         }
 
         for (let i = 0; i < entityNormalizeObj.allIds.length; i++) {
 
             if (cloneObjects) {
-                dataSourceRequestsList.push(Object.assign({}, entityNormalizeObj.byId[entityNormalizeObj.allIds[i]]));
+                arrayList.push(Object.assign({}, entityNormalizeObj.byId[entityNormalizeObj.allIds[i]]));
                 continue;
             }
 
-            dataSourceRequestsList.push(entityNormalizeObj.byId[entityNormalizeObj.allIds[i]]);
+            arrayList.push(entityNormalizeObj.byId[entityNormalizeObj.allIds[i]]);
         }
 
-        return dataSourceRequestsList;
+        return arrayList;
     }
 }

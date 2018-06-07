@@ -86,7 +86,12 @@ export namespace Selectors {
             return createSelector(
                 [getCurrencyList],
                 (currencyList: Array<Currency>): string => {
-                    return currencyList.find((currency: Currency) => currency.id == currencyId).currency;
+                    let currencyObj: Currency = currencyList.find((currency: Currency) => currency.id == currencyId);
+                    if(!currencyObj){
+                        return null;
+                    }
+
+                    return currencyObj.currency;
                 }
             );
         };
@@ -102,6 +107,18 @@ export namespace Selectors {
                 productCompleteList: Array<ProductComplete>): Array<ProductCompl> => {
 
                 let completeProductList = new Array<ProductCompl>();
+
+                if(!productsList){
+                    return completeProductList;
+                }
+
+                if(!productDetailList){
+                    return completeProductList;
+                }
+
+                if(!productCompleteList){
+                    return completeProductList;
+                }
 
                 for (let i = 0; i < productCompleteList.length; i++) {
                     completeProductList.push(

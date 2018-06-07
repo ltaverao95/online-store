@@ -10,6 +10,6 @@ import {
 export namespace Reducers {
 
     export const ui: Reducer<UI> = combineReducers<UI>({
-        
+        productsModule: null
     });
 }

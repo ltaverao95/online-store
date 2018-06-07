@@ -4,7 +4,7 @@ import {
 } from 'react-bootstrap';
 
 import {
-    IProduct,
+    ProductCompl,
     IProductsListViewModel
 } from '../../domain';
 
@@ -13,12 +13,12 @@ export interface OwnProps {
 }
 
 export interface ConnectedState {
-    productsList: Array<IProduct>;
+    productsList: Array<ProductCompl>;
     productsListViewModel: IProductsListViewModel;
 }
 
 export interface ConnectedDispatch {
-    setDataSourceRequestSelected: (dataSourceRequestId: number) => void;
+    
 }
 
 export class ProductListComponent extends React.Component<ConnectedState & ConnectedDispatch & OwnProps, undefined>{
@@ -26,13 +26,15 @@ export class ProductListComponent extends React.Component<ConnectedState & Conne
     constructor(props: ConnectedState & ConnectedDispatch & OwnProps) {
 
         super(props);
+        console.log(this.props.productsList);
+        console.log(this.props.productsListViewModel);
     }
 
     render() {
 
         return (
             <Panel>
-                               
+                           
             </Panel>
         );
     }
