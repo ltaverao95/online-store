@@ -1,7 +1,7 @@
 {
 	"appState": {
 		"domainConfiguration": {
-			"productConfiguration"{
+			"productConfiguration": {
 				"productsMap": {
 					"byId": {
 						"1": {
@@ -10,7 +10,9 @@
 							"productDetailId": "1"
 						}
 					},
-					"allIds": ["1"]
+					"allIds": [
+						"1"
+					]
 				},
 				"productDetailMap": {
 					"byId": {
@@ -22,7 +24,9 @@
 							"currencyId": "1"
 						}
 					},
-					"allIds": ["1"]
+					"allIds": [
+						"1"
+					]
 				},
 				"currencyMap": {
 					"byId": {
@@ -37,7 +41,10 @@
 							"currency": "$"
 						}
 					},
-					"allIds": ["1", "2"]
+					"allIds": [
+						"1",
+						"2"
+					]
 				},
 				"productsComplete": {
 					"byId": {
@@ -47,12 +54,15 @@
 							"productDetailId": "1"
 						}
 					},
-					"allIds": ["1"]
+					"allIds": [
+						"1"
+					]
 				}
 			}
 		},
 		"ui": {
 			"productsModule": {
+				"productsList": [],
 				"productsListViewModel": {
 					"actionResult": {}
 				}
