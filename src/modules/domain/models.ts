@@ -33,8 +33,8 @@ class ProductComplete{
 class ProductConfiguration{
     productsMap: EntityNormalizedObj<Product>;
     productDetailMap: EntityNormalizedObj<ProductDetail>;
-    currencyMap: EntityNormalizedObj<Currency>;
     productsComplete: EntityNormalizedObj<ProductComplete>;
+    currencyMap: EntityNormalizedObj<Currency>;
 }
 
 class DomainConfiguration{
@@ -46,7 +46,12 @@ class InterfaceConfiguration{
 }
 
 export {
+    ProductConfiguration,
     DomainConfiguration,
     InterfaceConfiguration,
-    IdEntityBase
+    IdEntityBase,
+    Product,
+    ProductDetail,
+    ProductComplete,
+    Currency
 }
