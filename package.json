@@ -25,10 +25,14 @@
     "@types/react": "^16.3.16",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.2",
+    "@types/react-router": "^4.0.26",
+    "@types/react-router-dom": "^4.2.7",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^3.0.1",
     "updeep": "^1.0.0"
@@ -39,6 +43,8 @@
     "source-map-loader": "^0.2.3",
     "typescript": "^2.9.1",
     "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3",
+    "webpack-command": "^0.2.0",
     "webpack-dev-server": "^3.1.4",
     "webpack-livereload-plugin": "^2.1.1"
   }
